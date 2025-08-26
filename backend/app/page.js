@@ -1,10 +1,11 @@
 import React from 'react'
-import CourseButtons from './components/CourseButtons'
-const url = "http://localhost:3000/courses"
+
+const url = "http://localhost:3000"
 
 const page = () => {
   return (
-    <CourseButtons url={url}/>
+    <h1>Home Page</h1>
+
   )
 }
 
