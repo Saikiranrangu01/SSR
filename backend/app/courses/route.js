@@ -1,167 +1,205 @@
 import { NextResponse } from "next/server";
 
-let courses = {
-  "web-development": {
+let courses = [
+  {
+    id: 1,
     name: "web-development",
     title: "Web Development",
     description: "HTML, CSS, JavaScript, React, Node.js.",
   },
-  "digital-marketing": {
+  {
+    id: 2,
     name: "digital-marketing",
     title: "Digital Marketing",
     description: "SEO, Google Ads, Analytics, Social Media Marketing.",
   },
-  "data-science": {
+  {
+    id: 3,
     name: "data-science",
     title: "Data Science",
     description: "Python, Pandas, Machine Learning, Deep Learning.",
   },
-  "mobile-app-development": {
+  {
+    id: 4,
     name: "mobile-app-development",
     title: "Mobile App Development",
     description: "Flutter, React Native, Android, iOS.",
   },
-  "cloud-computing": {
+  {
+    id: 5,
+    name: "mobile-app-development",
+    title: "Mobile App Development",
+    description: "Flutter, React Native, Android, iOS.",
+  },
+  {
+    id: 6,
     name: "cloud-computing",
     title: "Cloud Computing",
     description: "AWS, Azure, Google Cloud Platform, DevOps.",
   },
-  "cyber-security": {
+  {
+    id: 7,
     name: "cyber-security",
     title: "Cybersecurity",
     description: "Ethical Hacking, Network Security, Penetration Testing.",
   },
-  "ui/ux-design": {
+  {
+    id: 8,
     name: "ui/ux-design",
     title: "UI/UX Design",
     description: "Wireframing, Prototyping, Figma, Adobe XD.",
   },
-  "artificial-intelligence": {
+  {
+    id: 9,
     name: "artificial-intelligence",
     title: "Artificial Intelligence",
     description: "Neural Networks, NLP, Computer Vision.",
   },
-  "block-chain development": {
+  {
+    id: 10,
     name: "block-chain development",
     title: "Blockchain Development",
     description: "Smart Contracts, Ethereum, Web3, Cryptocurrency.",
   },
-  "project-management": {
+  {
+    id: 11,
     name: "project-management",
     title: "Project Management",
     description: "Agile, Scrum, Kanban, Risk Management.",
   },
-  "graphic-design": {
+  {
+    id: 12,
     name: "graphic-design",
     title: "Graphic Design",
     description: "Photoshop, Illustrator, Branding, Visual Design.",
   },
-  "business-analytics": {
+  {
+    id: 13,
     name: "business-analytics",
     title: "Business Analytics",
     description: "Data Visualization, Power BI, Tableau, SQL.",
   },
-  "software-testing": {
+  {
+    id: 14,
     name: "software-testing",
     title: "Software Testing",
     description: "Manual Testing, Automation, Selenium, QA Practices.",
   },
-  "game-development": {
+  {
+    id: 15,
     name: "game-development",
     title: "Game Development",
     description: "Unity, Unreal Engine, Game Physics, 3D Modeling.",
   },
-  "devops": {
+  {
+    id: 16,
     name: "devops",
     title: "DevOps",
     description: "CI/CD, Docker, Kubernetes, Jenkins.",
   },
-  "big-data": {
+  {
+    id: 17,
     name: "big-data",
     title: "Big Data",
     description: "Hadoop, Spark, Data Lakes, Distributed Systems.",
   },
-  "internet-of-things": {
+  {
+    id: 18,
     name: "internet-of-things",
     title: "Internet of Things",
     description: "IoT Devices, Arduino, Raspberry Pi, Smart Systems.",
   },
-  "augmented-reality": {
+  {
+    id: 19,
     name: "augmented-reality",
     title: "Augmented Reality",
     description: "ARKit, ARCore, Mixed Reality, 3D Interaction.",
   },
-  "virtual-reality": {
+  {
+    id: 20,
     name: "virtual-reality",
     title: "Virtual Reality",
     description: "VR Development, Oculus, Immersive Experiences.",
   },
-  "robotics": {
+  {
+    id: 21,
     name: "robotics",
     title: "Robotics",
     description: "ROS, Sensors, Automation, Control Systems.",
   },
-  "database-management": {
+  {
+    id: 22,
     name: "database-management",
     title: "Database Management",
     description: "MySQL, PostgreSQL, MongoDB, Database Design.",
   },
-  "entrepreneurship": {
+  {
+    id: 23,
     name: "entrepreneurship",
     title: "Entrepreneurship",
     description: "Startup Strategy, Business Models, Pitching, Fundraising.",
   },
-  "financial-analysis": {
+  {
+    id: 24,
     name: "financial-analysis",
     title: "Financial Analysis",
     description: "Investment, Risk Analysis, Excel, Corporate Finance.",
   },
-  "health-informatics": {
+  {
+    id: 25,
     name: "health-informatics",
     title: "Health Informatics",
     description: "Healthcare Data, EMR, Medical AI Applications.",
   },
-  "supply-chain-management": {
+  {
+    id: 26,
     name: "supply-chain-management",
     title: "Supply Chain Management",
     description: "Logistics, Inventory, Lean Management, ERP.",
   },
-  "renewable-energy": {
+  {
+    id: 27,
     name: "renewable-energy",
     title: "Renewable Energy",
     description: "Solar, Wind, Hydropower, Sustainable Tech.",
   },
-  "digital-illustration": {
+  {
+    id: 28,
     name: "digital-illustration",
     title: "Digital Illustration",
     description: "Drawing, Digital Art, Procreate, Character Design.",
   },
-  "content-writing": {
+  {
+    id: 29,
     name: "content-writing",
     title: "Content Writing",
     description: "Copywriting, Blogging, SEO Writing, Editing.",
   },
-  "video-editing": {
+  {
+    id: 30,
     name: "video-editing",
     title: "Video Editing",
     description: "Premiere Pro, After Effects, Storyboarding, Production.",
   },
-  "language-learning": {
+  {
+    id: 31,
     name: "language-learning",
     title: "Language Learning",
     description: "English, Spanish, French, Communication Skills.",
   },
-  "psychology": {
+  {
+    id: 32,
     name: "psychology",
     title: "Psychology",
     description: "Behavioral Science, Cognitive Psychology, Therapy Basics.",
   },
-  "philosophy": {
+  {
+    id: 33,
     name: "philosophy",
     title: "Philosophy",
     description: "Ethics, Logic, Critical Thinking, World Philosophies.",
   },
-};
+];
 
 
 
@@ -169,7 +207,7 @@ let courses = {
 export async function GET(request) {
   const {searchParams} = new URL(request.url);
   const page = parseInt(searchParams.get("page") || "1", 10);
-  const limit = parseInt(searchParams.get("limit") || "10",10);
+  const limit = parseInt(searchParams.get("limit") || "10",);
   const search = searchParams.get("search");
 
   // const sortBy = searchParams.get("sortBy") || "title"; // Default to sorting by title
